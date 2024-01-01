@@ -9,4 +9,12 @@ CREATE TABLE department (
 );
 
 
-
+CREATE TABLE role (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY,
+    title VARCHAR(50) NOT NULL,
+    salary DECIMAL,
+    department_id INT,
+    FOREIGN KEY (department_id)
+    REFERENCES department(id)
+    ON DELETE CASCADE
+);
