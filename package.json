@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/isayani/sql-employee-tracker.git"
+    "url": "git+https://github.com/dhiduchick/Hiduchick-Employee-Tracker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/isayani/sql-employee-tracker/issues"
+    "url": "https://github.com/dhiduchick/Hiduchick-Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/isayani/sql-employee-tracker#readme",
+  "homepage": "https://github.com/dhiduchick/Hiduchick-Employee-Tracker#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
     "inquirer": "^8.2.4",
