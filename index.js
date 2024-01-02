@@ -45,7 +45,20 @@ switch (select) {
         break;
         
 // EMPLOYEE ID, FIRST NAME, LAST NAME, JOB ITLE, DEPARTMENT, SALARY, AND MANAGER 
-    case 'View All Employees':        
+    case 'View All Employees':
+        returnedRowsFromDb = await db.query(`
+        SELECT 
+        employee.id,
+        employee.first_name,
+        employee.last_name,
+        role.title AS title,
+        department.name AS department,
+        role.salary AS salary,
+        CASE WGEB employee.manager_id IS NOT NULL THEN CONTACT(manager_table.first_name, ' ', manager_table.last_name) ELSE NULL END AS manager
+        FROM employee
+        JOIN role ON employee.role_id = role_id
+        JOIN department ON role.department_id = department_id
+        JOIN employee manager_table ON employee.manager_id = manager_table.id`);     
 }
     }
 }
