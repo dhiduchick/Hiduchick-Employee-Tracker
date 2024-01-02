@@ -96,7 +96,21 @@ case 'Add a Role':
             name: 'roleDpt',
             message: 'Enter new role department:',
         },
-    ]);    
+    ]);   
+    
+// DESTRUCTURE returnedOutputFromInq
+const { roleName, roleSalary, roleDpt } = returnedOutputFromInq;
+
+//MAKE VARIABLE TO STORE VALUE FROM THE DB CELL TO GET DEPARTMENT ID 
+const returnDepartmentId = await db.query(
+    `SELECT IFNULL((ELECT id FROM department WHERE name = '${roleDpt}), 'Department does not exist')`
+);
+
+//WRITE A QUERY TO GET THE DEPARTMENT ID FROM THE NAME 
+const [rows] = returnDepartmentId;
+const department_id = Object.values(rows[0])[0];
+
+
 }
     }
 }
