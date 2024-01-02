@@ -106,11 +106,40 @@ const returnDepartmentId = await db.query(
     `SELECT IFNULL((ELECT id FROM department WHERE name = '${roleDpt}), 'Department does not exist')`
 );
 
+
 //WRITE A QUERY TO GET THE DEPARTMENT ID FROM THE NAME 
 const [rows] = returnDepartmentId;
 const department_id = Object.values(rows[0])[0];
 
+//SEE IF THE ID EXISTS IN THE DB OR NOT AND RETURN 'DEPARTMENT DOES NOT EXIST
+if(department_id === 'Department does not exist') {
+    console.log('Enter a role in an existing department.');
+    break;
+};    
+
+// ENTER EMPLOYEE FIRST NAME, LAST NAME, ROLE, MANAGER; employee added to the db
+
+case 'Add an Employee':
+    returnedOutputFromInq = await inquirer.prompt([
+      { name: "first_name",
+        message: "Enter new employee's first name:",
+      },
+      {
+        name: "last_name",
+        message: "Enter new employee's last name:",
+      },
+      {
+        name: "role",
+        message: "Enter new employee's role:",
+      },
+      {
+        name: "manager",
+        message: "Enter new employee's manager:",
+      },   
+    ]);  
+
+    
+}
 
 }
     }
-}
