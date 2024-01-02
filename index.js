@@ -194,7 +194,51 @@ case 'Update an employee role':
         },
     ]);
     console.log(returnedOutputFromInq);
+
+    //RUN THE UPDATE 
+    returnedRowsFromDb = await db.query(`
+    UPDATE employee 
+    SET role_id = ${returnedOutputFromInq.newRole}
+    WHERE employee_id = ${returnedOutputFromInq.employeeId};`);
+
+    break;
+}
+    }catch (err) {
+        console.log(err);
+    }
 }
 
+function userPrompt() {
+    inquirer
+    .prompt([
+        {
+            type: 'list',
+            name: 'select',
+            message: 'What would you like to do?',
+            choises: [
+                'View all Departments',
+                'View all Roles',
+                'View all Employees',
+                'Add a Department',
+                'Add a Role',
+                'Add an Employee',
+                'Update an Employee Role',
+                new inquirer.Separator(),
+                'Quit',
+            ],
+        },
+    ])
+    .then(async (res) => {
+        await dbConnection(res.select);
+        res.select === 'Quit' ? process.exit() : userPrompt();
+    })
+    .catch((err) => {
+        if (error.isTtyError) {
+        }else{
+            err;
+        }
+    });
+    
 }
-    }
+
+userPrompt();
