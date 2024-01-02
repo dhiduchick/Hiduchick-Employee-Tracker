@@ -32,6 +32,20 @@ switch (select) {
     break;
 
 //ROLE ID, JOB TITLE, DEPARTMENT VALUE, SALARY VALUE
+    case "View All Roles":
+        returnedRowsFromDb = await db.query(`
+            SELECT
+                role.id,
+                role,title,
+                role.salary,
+                department.name AS department
+            FROM role
+            JOIN department ON role.department_id = department.id`);
+        console.table(returnedRowsFromDb[0]);
+        break;
+        
+// EMPLOYEE ID, FIRST NAME, LAST NAME, JOB ITLE, DEPARTMENT, SALARY, AND MANAGER 
+    case 'View All Employees':        
 }
     }
 }
