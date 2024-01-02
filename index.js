@@ -156,6 +156,44 @@ returnedRowsFromDb = await db.query(
     `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${first_name}', '${last_name}', '${role_data[0].id}', '${manager_data[0].id})`
 );
 break;
+
+//SELECT EMPLOYEE, UPDATE ROLE 
+case 'Update an employee role':
+    currentEmployees = await db.query(`
+    SELECT id, first_name, last_name FROM employee;`);
+
+    currentRoles = await db.query(`
+    SELECT id, title FROM role;`);
+
+    const employeeList = currentEmployees[0].map((employee) => {
+        return {
+            name: `${employee['first_name']} ${employee.last_name}`,
+            value: employee.id,
+        };
+    });
+
+    const roleList = currentRoles[0].map((role) => {
+        return {
+            name: role.title,
+            value: role.id,
+        };
+    });
+
+    returnedOutputFromInq = await inquirer.prompt([
+        {
+            type:'list',
+            name: 'employeeId',
+            message: 'Choose which employee to update:',
+            choices: employeeList,
+        },
+        {
+            type: 'list',
+            name: 'newRole',
+            message: "Plese enter employee's new role:",
+            choices: roleList,
+        },
+    ]);
+    console.log(returnedOutputFromInq);
 }
 
 }
