@@ -58,7 +58,28 @@ switch (select) {
         FROM employee
         JOIN role ON employee.role_id = role_id
         JOIN department ON role.department_id = department_id
-        JOIN employee manager_table ON employee.manager_id = manager_table.id`);     
+        JOIN employee manager_table ON employee.manager_id = manager_table.id`);
+    console.table(returnedOutputFromInq[0]);
+    break;
+    
+//ENTER NAME ; DEPARTMENT ADDED TO DB
+    case "Add a Dapartment":
+    returnedOutputFromInq = await inquirer.prompt([
+        {
+            name: 'department',
+            message: 'Enter new department name:',
+        },
+    ]);
+    
+    try {
+        returnedRowsFromDb = await db.query(
+            `INSERT INTO department (name) VALUES ('${returnedOutputFromInq.department}');`
+        );
+    } catch (error) {
+        console.log('Cannot insert duplicate department.');
+    }
+
+    break; 
 }
     }
 }
