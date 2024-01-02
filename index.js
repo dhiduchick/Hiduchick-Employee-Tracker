@@ -80,6 +80,23 @@ switch (select) {
     }
 
     break; 
+
+//ENTER NAME, SALARY, DEPARTMENT; ROLE ADDED TO DB
+case 'Add a Role':
+    returnedOutputFromInq = await inquirer.prompt([
+        {
+            name: 'roleName',
+            message: 'Enter new role name:',
+        },
+        {
+            name: 'roleSalary',
+            message: 'Enter new role salary:',
+        },
+        {
+            name: 'roleDpt',
+            message: 'Enter new role department:',
+        },
+    ]);    
 }
     }
 }
