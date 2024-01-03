@@ -23,15 +23,15 @@ VALUES ('Engineering Manager', 120000, 1),
 
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ("Harry", "Potter",  1, NULL),
+VALUES ("Harry", "Potter",  1, 1),
         ("Ron", "Weasley",  2, 1),
         ("Ginny", "Weasley",  3, 1), 
-        ("Geroge", "Weasley",  4, NULL), 
+        ("George", "Weasley",  4, 2), 
         ("Fred", "Weasley",  5, 4),
-        ("Draco", "Malfoy",  6, NULL), 
+        ("Draco", "Malfoy",  6, 3), 
         ("Hermionie", "Granger",  7, 6), 
         ("Luna", "Lovegood",  8, 6), 
-        ("Albus", "Dumbledore",  9, NULL), 
+        ("Albus", "Dumbledore",  9, 4), 
         ("Tom", "Riddle",  10, 9), 
-        ("Neville", "Longbottom",  11, NULL), 
+        ("Neville", "Longbottom",  11, 5), 
         ("Cedric", "Diggory",  12, 11);
