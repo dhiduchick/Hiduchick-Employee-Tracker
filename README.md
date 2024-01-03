@@ -30,11 +30,21 @@ To run Your Employee Tracker locally:
 ![Website Demo GIF]()
 
 ## Images 
-![Start Page]()
-![Note1 Made]()
-![Note1 Saved]()
-![Note2 Made]()
-![Note2 Saved]()
-![Note1 Deleted]()
+![Starting options](./images/1.png)
+
+![All departments](./images/2.png)
+
+![All roles](./images/3.png)
+
+![All employees](./images/4.png)
+
+![Add department](./images/5.png)
+
+![Add role](./images/6.png)
+
+![Add employee](./images/7.png)
+
+![Update employee](./images/8.png)
+
 # Author
 Created with ♡ by Daelyn Hiduchick
