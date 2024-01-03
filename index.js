@@ -152,7 +152,7 @@ async function dbConnection(select) {
         const allRoles = await db.query("select * from role;");
 
         const allManagers = await db.query(
-          "SELECT * FROMÍ employee where manager_id is null;"
+          "SELECT * FROM employee where manager_id is null;"
         );
 
         const { first_name, last_name, role, manager } = returnedOutputFromInq;
