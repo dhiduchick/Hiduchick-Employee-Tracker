@@ -27,7 +27,7 @@ To run Your Employee Tracker locally:
 
 
 ## Demo
-![Website Demo GIF]()
+[![Watch the video](./images/video-start-image.png)](https://drive.google.com/file/d/1PmCThYbYDoJD6x8F1zWSILT9gi1bhkAk/view)
 
 ## Images 
 ![Starting options](./images/1.png)
